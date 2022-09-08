@@ -20,14 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
   this.state = {direction: " Press an arrow key",
-  board:[
-    [{letter:"A",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"L",status:"white"},{letter:"",status:"white"},{letter:"R",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}]
-  ],
+  board:this.startLetters(),
   nextLetters: []
   };
   }
@@ -36,6 +29,30 @@ updateBoard = (newBoard) => {
   this.setState({
     board: newBoard
   })
+}
+
+// Decide up to 5 random letters to initialize the board with
+startLetters = () => {
+
+  let protoBoard = [
+    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}]
+  ];
+
+
+  let numberOfLetters = getRandomInt(1,5);
+  
+  for(let i=0;i<numberOfLetters;i++){
+    let rowNum = getRandomInt(0,5);
+    let colNum = getRandomInt(0,5);
+    protoBoard[rowNum][colNum].letter=String.fromCharCode(0|Math.random()*26+65);
+  }
+  return(protoBoard);
+  
 }
 
 // get the next random letters that will appear when the player moves
@@ -224,11 +241,14 @@ handleKeyUp =() => {
   })
 }
 
+
+
 componentDidMount = () => {
  window.addEventListener("keydown",this.handleKey)
  window.addEventListener("keyup",this.handleKeyUp)
 
  this.getNextLetters();
+
  
 } 
   render () {
