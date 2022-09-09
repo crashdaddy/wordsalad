@@ -21,6 +21,8 @@ class App extends Component {
     super(props);
   this.state = {direction: " Press an arrow key",
   board:this.startLetters(),
+  wordDictionary: [],
+  lettersList:"",
   nextLetters: []
   };
   }
@@ -59,9 +61,11 @@ startLetters = () => {
 getNextLetters = () => {
   let newLetters = []
   let numberOfLetters = getRandomInt(1,3);
+  let lettersAvailable = this.state.lettersList;
+  let lettersAvailableCount = lettersAvailable.length;
 
   for(let i=0;i<numberOfLetters;i++){
-    newLetters.push(String.fromCharCode(0|Math.random()*26+65))
+    newLetters.push(lettersAvailable.charAt(getRandomInt(0,lettersAvailableCount)))
   }
 
   this.setState({
@@ -242,13 +246,42 @@ handleKeyUp =() => {
 }
 
 
+async loadDictionary() {
+  let letterArray = ""
+  let usableWords = [];
+
+  let response = await fetch("engmix.txt");
+      
+    if(response.status !== 200) {
+      throw new Error("Server Error");
+    }
+      
+    // read response stream as text
+    let text_data = await response.text();
+    let wordList = String.prototype.toUpperCase.apply(text_data).split("\n");
+    
+    wordList.forEach(word => {
+      if(word.length>2 && word.length<7) {
+        usableWords.push(word);
+      }
+      
+    });
+    letterArray=wordList.join("");
+
+    this.setState({
+      wordDictionary: usableWords,
+      lettersList:letterArray
+    });
+    this.getNextLetters();
+}
+
 
 componentDidMount = () => {
  window.addEventListener("keydown",this.handleKey)
  window.addEventListener("keyup",this.handleKeyUp)
 
- this.getNextLetters();
-
+ this.loadDictionary();
+ 
  
 } 
   render () {
