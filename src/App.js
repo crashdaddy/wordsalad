@@ -296,9 +296,9 @@ componentDidMount = () => {
               {this.state.board.map((board,idx)=>{
               return (
               <div key = {idx}>
-                  {board.map((row,idx)=>{
+                  {board.map((row,idx2)=>{
                   return(
-                  <div><Tile letter={row.letter} color={row.status} key={idx}/></div>
+                  <div key={idx2}><Tile letter={row.letter} color={row.status} key={idx}/></div>
                   )
                   })
                   }  
