@@ -227,7 +227,7 @@ checkWords = () => {
   let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+3).join("").toLowerCase();
   console.log(firstWord);
   wordsAvailable.forEach(word => {
-    if (word.toLowerCase() == firstWord.toLowerCase()) {
+    if (word.toLowerCase() === firstWord.toLowerCase()) {
       wordsFound.push(word);
       console.log("found: "+ word);
       for (let z =0;z<3;z++){
