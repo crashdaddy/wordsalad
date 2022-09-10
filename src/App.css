@@ -37,12 +37,35 @@
   }
 }
 
+.regularTile {
+  width:30px;
+  height:30px;
+  font-size:x-large;
+  float:left;
+  border:1px solid white;
+  margin-right:4px;
+  margin-top:4px;
+  padding-bottom:4px;
+  color:black;
+  border-radius:5px;
+  vertical-align:middle;
+}
+
 #foundWord {
-  width: 300px;
-  height: 200px;
+  width:30px;
+  height:30px;
+  font-size:x-large;
+  float:left;
+  border:1px solid white;
+  margin-right:4px;
+  margin-top:4px;
+  padding-bottom:4px;
+  color:black;
+  border-radius:5px;
+  vertical-align:middle;
   background: rgb(73, 233, 108);
-  animation: foundWord 1.5s;
-  animation-fill-mode: forwards;
+  /* animation: foundWord 1.5s;
+  animation-fill-mode: forwards; */
 }
 
 @keyframes foundWord {

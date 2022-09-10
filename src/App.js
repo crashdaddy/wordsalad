@@ -39,12 +39,12 @@ updateBoard = (newBoard) => {
 startLetters = () => {
 
   let protoBoard = [
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
-    [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}]
+    [{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""}],
+    [{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""}],
+    [{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""}],
+    [{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""}],
+    [{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""}],
+    [{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""}]
   ];
 
 
@@ -95,6 +95,7 @@ addLetters = (side,newBoard) => {
         }
         for(let i=0;i<numberOfLetters;i++){
           currentBoard[5][emptySpaces[i]].letter = lettersToAdd[i];
+          currentBoard[5][emptySpaces[i]].status = "";
         }
         break;
     case "left":
@@ -108,7 +109,8 @@ addLetters = (side,newBoard) => {
           numberOfLetters=emptySpaces.length;
         }
         for(let i=0;i<numberOfLetters;i++){
-          currentBoard[emptySpaces[i]][0].letter = lettersToAdd[i]
+          currentBoard[emptySpaces[i]][0].letter = lettersToAdd[i];
+          currentBoard[emptySpaces[i]][0].status = "";
         }
         break;
       case "right":
@@ -123,6 +125,7 @@ addLetters = (side,newBoard) => {
           }
           for(let i=0;i<numberOfLetters;i++){
             currentBoard[emptySpaces[i]][5].letter = lettersToAdd[i]
+            currentBoard[emptySpaces[i]][5].status = "";
           }
           break;
       case "top":
@@ -137,6 +140,7 @@ addLetters = (side,newBoard) => {
           }
           for(let i=0;i<numberOfLetters;i++){
             currentBoard[0][emptySpaces[i]].letter = lettersToAdd[i];
+            currentBoard[0][emptySpaces[i]].status = "";
           }
           break;
                        
@@ -154,6 +158,7 @@ moveRight = () => {
     if (currentBoard[currentRow][i].letter === "" && i >0) {
       currentBoard[currentRow][i].letter = currentBoard[currentRow][i-1].letter
       currentBoard[currentRow][i-1].letter = "";
+      currentBoard[currentRow][i-1].status = "";
     }
 
   }
@@ -171,6 +176,7 @@ moveLeft = () => {
     if (currentBoard[currentRow][i].letter === "" && i <5) {
       currentBoard[currentRow][i].letter = currentBoard[currentRow][i+1].letter
       currentBoard[currentRow][i+1].letter = "";
+      currentBoard[currentRow][i+1].status = "";
     }
 
   }
@@ -189,6 +195,7 @@ moveUp = () => {
     if (currentBoard[currentRow][i].letter === "" && i <6) {
       currentBoard[currentRow][i].letter = currentBoard[currentRow+1][i].letter
       currentBoard[currentRow+1][i].letter = "";
+      currentBoard[currentRow+1][i].status = "";
     }
 
   }
@@ -207,6 +214,7 @@ moveDown = () => {
     if (currentBoard[currentRow][i].letter === "" && i <6) {
       currentBoard[currentRow][i].letter = currentBoard[currentRow-1][i].letter
       currentBoard[currentRow-1][i].letter = "";
+      currentBoard[currentRow-1][i].status = "";
     }
 
   }
@@ -307,7 +315,16 @@ checkGameOver = () => {
     this.setState({
       gameOver:true
     })
-  }
+  } 
+}
+
+clearAllFounds = () => {
+  let gameBoard=this.state.board;
+  for (let row = 0;row<6;row++) {
+    for (let col=0;col<6;col++){
+      gameBoard[row][col].status="";
+      }
+    }
 }
 
 handleKey = (e) => {
@@ -317,6 +334,8 @@ handleKey = (e) => {
   this.setState({
     direction:e.code
   })
+
+  this.clearAllFounds();
 
   switch (e.code) {
     case "ArrowRight":
@@ -407,7 +426,7 @@ componentDidMount = () => {
               <div key = {idx}>
                   {board.map((row,idx2)=>{
                   return(
-                  <div key={idx2}><Tile letter={row.letter} color={row.status} key={idx}/></div>
+                  <div key={idx2}><Tile letter={row.letter} status={row.status} key={idx}/></div>
                   )
                   })
                   }  
