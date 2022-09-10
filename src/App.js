@@ -1,8 +1,8 @@
-
 import './App.css';
 import { Component } from 'react';
 import Tile from ".//Components/Tile.js";
 import Nextletters from './Components/Nextletters';
+import FoundWord from './Components/FoundWord';
 
 // returns a random integer between min and max
   function getRandomInt(min, max) {
@@ -23,6 +23,7 @@ class App extends Component {
   board:this.startLetters(),
   wordDictionary: [],
   lettersList:"",
+  foundwords:[],
   nextLetters: []
   };
   }
@@ -215,6 +216,34 @@ this.addLetters("top",currentBoard);
 }
 
 
+checkWords = () => {
+ let wordsFound = [];
+ let gameBoard = this.state.board;
+ let wordsAvailable = this.state.wordDictionary;
+
+ for(let i=0;i<6;i++){
+  // 3-letter words
+  for(let startIndex=0;startIndex<5;startIndex++){
+  let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+3).join("").toLowerCase();
+  console.log(firstWord);
+  wordsAvailable.forEach(word => {
+    if (word.toLowerCase() == firstWord.toLowerCase()) {
+      wordsFound.push(word);
+      console.log("found: "+ word);
+      for (let z =0;z<3;z++){
+        gameBoard[i][startIndex+z].status="found";
+        gameBoard[i][startIndex+z].letter="";
+      }
+    }
+  });
+  }
+ }
+ this.setState({
+  board: gameBoard,
+  foundwords: wordsFound
+ })
+}
+
 handleKey = (e) => {
   this.setState({
     direction:e.code
@@ -237,6 +266,7 @@ handleKey = (e) => {
       // they didn't press anything
   }
 
+  this.checkWords();
 }
 
 handleKeyUp =() => {
@@ -307,7 +337,7 @@ componentDidMount = () => {
               })}
         </div>
         <p>
-          {this.state.direction}
+          <FoundWord word={this.state.foundwords} />
         </p>
        
       </header>

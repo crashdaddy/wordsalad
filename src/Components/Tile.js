@@ -4,6 +4,10 @@ class Tile extends Component {
 
 
     render() {
+    let divID = "";
+    if (this.props.color==="found"){
+        divID="foundWord";
+    }
     let bgStyle= {width:'30px',
     backgroundColor:this.props.color,
     height:'30px',
@@ -19,7 +23,7 @@ class Tile extends Component {
     }
        return (
 
-        <div style={bgStyle}>{this.props.letter}</div>
+        <div style={bgStyle} id={divID}>{this.props.letter}</div>
 
        )
 
