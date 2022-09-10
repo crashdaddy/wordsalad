@@ -222,22 +222,53 @@ checkWords = () => {
  let wordsAvailable = this.state.wordDictionary;
 
  for(let i=0;i<6;i++){
-  // 3-letter words
-  for(let startIndex=0;startIndex<5;startIndex++){
-  let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+3).join("").toLowerCase();
-  console.log(firstWord);
-  wordsAvailable.forEach(word => {
-    if (word.toLowerCase() === firstWord.toLowerCase()) {
-      wordsFound.push(word);
-      console.log("found: "+ word);
-      for (let z =0;z<3;z++){
-        gameBoard[i][startIndex+z].status="found";
-        gameBoard[i][startIndex+z].letter="";
+    // 5-letter words
+    for(let startIndex=0;startIndex<2;startIndex++){
+      let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+5).join("").toLowerCase();
+      wordsAvailable.forEach(word => {
+        if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 5) {
+          wordsFound.push(word);
+          console.log("found: "+ word);
+          console.log("wordlength: "+ word.length);
+          for (let z =0;z<5;z++){
+            gameBoard[i][startIndex+z].status="found";
+            gameBoard[i][startIndex+z].letter="";
+          }
+        }
+      });
       }
+     
+    // 4-letter words
+    for(let startIndex=0;startIndex<3;startIndex++){
+      let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+4).join("").toLowerCase();
+      wordsAvailable.forEach(word => {
+        if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 4) {
+          wordsFound.push(word);
+          console.log("found: "+ word);
+          for (let z =0;z<4;z++){
+            gameBoard[i][startIndex+z].status="found";
+            gameBoard[i][startIndex+z].letter="";
+          }
+        }
+      });
+      }
+     
+    // 3-letter words
+    for(let startIndex=0;startIndex<5;startIndex++){
+    let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+3).join("").toLowerCase();
+    wordsAvailable.forEach(word => {
+      if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 3) {
+        wordsFound.push(word);
+        console.log("found: "+ word);
+        for (let z =0;z<3;z++){
+          gameBoard[i][startIndex+z].status="found";
+          gameBoard[i][startIndex+z].letter="";
+        }
+      }
+    });
     }
-  });
-  }
  }
+ 
  this.setState({
   board: gameBoard,
   foundwords: wordsFound
