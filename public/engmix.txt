@@ -1,7 +1,6 @@
 aaah
 aachen
 aaron
-aba
 ababa
 abaci
 aback
@@ -39,7 +38,6 @@ abbreviation
 abbreviations
 abbreviator
 abbreviators
-abc
 abdicant
 abdicants
 abdicate
@@ -203,7 +201,6 @@ abounds
 about
 above
 aboveground
-abr
 abracadabra
 abrade
 abraded
@@ -349,7 +346,6 @@ absurdities
 absurdity
 absurdly
 absurdum
-abu
 abuja
 abundance
 abundant
@@ -749,8 +745,6 @@ acrostics
 acrylic
 acrylics
 act
-acta
-acte
 acted
 actes
 actin
@@ -1154,7 +1148,6 @@ adumbrated
 adumbrates
 adumbrating
 adumbration
-adv
 advance
 advanced
 advancement
@@ -3505,10 +3498,10 @@ applicator
 applicators
 applied
 applies
-appliquƒ
-appliquƒd
-appliquƒing
-appliquƒs
+appliquï¿½
+appliquï¿½d
+appliquï¿½ing
+appliquï¿½s
 apply
 applying
 appoint
@@ -4559,7 +4552,7 @@ attach
 attachable
 attached
 attaches
-attachƒ
+attachï¿½
 attaching
 attachment
 attachments
@@ -6970,8 +6963,8 @@ beyond
 bezel
 bezels
 bezique
-bƒarnaise
-bƒchamel
+bï¿½arnaise
+bï¿½chamel
 bhopal
 bhutan
 bi
@@ -7516,7 +7509,7 @@ blarney
 blarneyed
 blarneying
 blarneys
-blasƒ
+blasï¿½
 blaspheme
 blasphemed
 blasphemer
@@ -10354,8 +10347,8 @@ canals
 canap
 canape
 canapes
-canapƒ
-canapƒs
+canapï¿½
+canapï¿½s
 canaps
 canard
 canards
@@ -13187,8 +13180,8 @@ clews
 clich
 cliche
 cliches
-clichƒ
-clichƒs
+clichï¿½
+clichï¿½s
 clichs
 click
 clicked
@@ -13308,7 +13301,7 @@ clogging
 cloggy
 clogs
 cloisonn
-cloisonnƒ
+cloisonnï¿½
 cloister
 cloistered
 cloistering
@@ -14325,8 +14318,8 @@ communions
 communiqu
 communique
 communiques
-communiquƒ
-communiquƒs
+communiquï¿½
+communiquï¿½s
 communiqus
 communis
 communisation
@@ -15349,8 +15342,8 @@ consoling
 consols
 consomm
 consomme
-consommƒ
-consommƒs
+consommï¿½
+consommï¿½s
 consomms
 consonance
 consonant
@@ -17109,8 +17102,8 @@ crewing
 crewman
 crewmen
 crews
-crche
-crches
+crï¿½che
+crï¿½ches
 cri
 crianlarich
 crib
@@ -17399,7 +17392,7 @@ crudely
 crudeness
 cruder
 crudest
-cruditƒs
+cruditï¿½s
 crudities
 crudits
 crudity
@@ -20571,11 +20564,11 @@ dextrose
 dextrous
 dextrously
 dextrousness
-dƒclassƒ
-dƒcolletage
-dƒcolletƒ
-dƒtente
-dƒtentes
+dï¿½classï¿½
+dï¿½colletage
+dï¿½colletï¿½
+dï¿½tente
+dï¿½tentes
 dfc
 dfm
 dhabi
@@ -27307,7 +27300,7 @@ factum
 facultative
 faculties
 faculty
-faˆadism
+faï¿½adism
 fad
 faddish
 faddy
@@ -27341,8 +27334,8 @@ fails
 failure
 failures
 fain
-fainƒant
-fainƒants
+fainï¿½ant
+fainï¿½ants
 faint
 fainted
 fainter
@@ -28158,8 +28151,8 @@ fiance
 fiancee
 fiancees
 fiances
-fiancƒ
-fiancƒs
+fiancï¿½
+fiancï¿½s
 fiasco
 fiascoes
 fiascos
@@ -33472,8 +33465,8 @@ habituation
 habitude
 habitudes
 habitue
-habituƒ
-habituƒs
+habituï¿½
+habituï¿½s
 hable
 hables
 habsburg
@@ -43457,7 +43450,6 @@ loiterer
 loiterers
 loitering
 loiters
-loll
 lollapalooza
 lolled
 lollies
@@ -44079,7 +44071,7 @@ mackinaws
 mackintosh
 mackintoshes
 macmillan
-macramƒ
+macramï¿½
 macro
 macrobiotic
 macrobiotics
@@ -44698,7 +44690,7 @@ manorbier
 manorial
 manors
 manpower
-manquƒ
+manquï¿½
 mans
 mansard
 mansards
@@ -46208,8 +46200,8 @@ mezzo
 mezzos
 mezzotint
 mezzotints
-mƒtier
-mƒtiers
+mï¿½tier
+mï¿½tiers
 mg
 mho
 mhos
@@ -47402,7 +47394,7 @@ moiled
 moiling
 moils
 moines
-moirƒ
+moirï¿½
 moist
 moisten
 moistened
@@ -48701,10 +48693,10 @@ nairobi
 naive
 naively
 naives
-naivetƒ
+naivetï¿½
 naivety
-na’f
-na’fs
+naï¿½f
+naï¿½fs
 naked
 nakedly
 nakedness
@@ -51570,7 +51562,7 @@ outreach
 outreached
 outreaches
 outreaching
-outrƒ
+outrï¿½
 outrider
 outriders
 outrigger
@@ -53249,7 +53241,7 @@ passerine
 passerines
 passers
 passes
-passƒ
+passï¿½
 passim
 passing
 passion
@@ -57332,7 +57324,7 @@ prey
 preyed
 preying
 preys
-prƒcis
+prï¿½cis
 priapism
 price
 priced
@@ -58165,8 +58157,8 @@ protester
 protesters
 protesting
 protests
-protƒgƒ
-protƒgƒs
+protï¿½gï¿½
+protï¿½gï¿½s
 protheses
 prothesis
 prothonotaries
@@ -58222,7 +58214,7 @@ proved
 proven
 provenance
 provence
-provenˆal
+provenï¿½al
 provender
 provenience
 proverb
@@ -58669,7 +58661,6 @@ puppies
 puppy
 puppyish
 pups
-pur
 purbeck
 purblind
 purcell
@@ -59736,7 +59727,6 @@ rangier
 rangiest
 ranging
 rangoon
-rani
 rank
 ranked
 ranker
@@ -59831,13 +59821,10 @@ rarest
 raring
 rarities
 rarity
-ras
-rasa
 rascal
 rascality
 rascally
 rascals
-rase
 rased
 rases
 rash
@@ -59864,7 +59851,6 @@ rasters
 rasure
 rasures
 rat
-rata
 ratability
 ratable
 ratably
@@ -60439,7 +60425,7 @@ recheck
 rechecked
 rechecking
 rechecks
-recherchƒ
+recherchï¿½
 recht
 recidivism
 recidivist
@@ -63432,7 +63418,7 @@ risks
 risky
 risotto
 risottos
-risquƒ
+risquï¿½
 rissole
 rissoles
 rita
@@ -63838,8 +63824,8 @@ rotundity
 rouble
 roubles
 rouen
-rouƒ
-rouƒs
+rouï¿½
+rouï¿½s
 rouge
 rouged
 rouges
@@ -64902,10 +64888,10 @@ sausage
 sausages
 sauterne
 sauternes
-sautƒ
-sautƒed
-sautƒing
-sautƒs
+sautï¿½
+sautï¿½ed
+sautï¿½ing
+sautï¿½s
 sauvignon
 savable
 savage
@@ -69003,7 +68989,7 @@ societal
 societas
 societies
 society
-sociƒtƒ
+sociï¿½tï¿½
 sociologic
 sociological
 sociologically
@@ -69068,8 +69054,8 @@ soggiest
 sogginess
 soggy
 soho
-soignƒ
-soignƒe
+soignï¿½
+soignï¿½e
 soil
 soiled
 soiling
@@ -69411,8 +69397,8 @@ sot
 sots
 soubrette
 soubrettes
-soufflƒ
-soufflƒs
+soufflï¿½
+soufflï¿½s
 sough
 soughed
 soughing
@@ -75923,7 +75909,7 @@ touchdown
 touchdowns
 touched
 touches
-touchƒ
+touchï¿½
 touchier
 touchiest
 touchiness
@@ -84069,7 +84055,3 @@ zygotes
 zygotic
 zymology
 zymurgy
-ƒclat
-ƒlan
-ƒmigrƒs
-ƒpoque
