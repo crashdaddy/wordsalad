@@ -346,7 +346,10 @@ componentDidMount = () => {
  
 } 
   render () {
-
+    let foundPanel = " ";
+    if(this.state.foundwords.length>0) {
+      foundPanel = <FoundWord word={this.state.foundwords} />;
+    }
     return(
     <div className="App">
       <header className="App-header">
@@ -368,7 +371,7 @@ componentDidMount = () => {
               })}
         </div>
         <p>
-          <FoundWord word={this.state.foundwords} />
+          <div style={{height:"30px"}}>&nbsp;{foundPanel}</div>
         </p>
        
       </header>
