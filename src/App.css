@@ -41,7 +41,7 @@
   width: 300px;
   height: 200px;
   background: rgb(73, 233, 108);
-  animation: foundWord 1s;
+  animation: foundWord 1.5s;
   animation-fill-mode: forwards;
 }
 

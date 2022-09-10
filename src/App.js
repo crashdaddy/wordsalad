@@ -271,21 +271,20 @@ checkWords = () => {
   /// going vertically
 
     // 3-letter words
-  //   for(let startIndex=0;startIndex<3;startIndex++){
-  //     console.log(i+startIndex);
-  //     if((i+startIndex)<6){
-  //     let firstWord=gameBoard[i+startIndex][startIndex].letter+gameBoard[i+startIndex][startIndex].letter+gameBoard[i+startIndex][startIndex].letter;
-  //     wordsAvailable.forEach(word => {
-  //       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 3) {
-  //         wordsFound.push(word);
-  //         for (let z =0;z<3;z++){
-  //           gameBoard[i+z][startIndex+z].status="found";
-  //           gameBoard[i+z][startIndex+z].letter="";
-  //         }
-  //       }
-  //     })
-  //   }
-  // }
+    for (let startRow = 0; startRow<4;startRow++){
+        
+    let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter;
+      wordsAvailable.forEach(word => {
+        if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 3) {
+          wordsFound.push(word);
+          for (let z =0;z<3;z++){
+            gameBoard[startRow+z][i].status="found";
+            gameBoard[startRow+z][i].letter="";
+          }
+        }
+      })
+  }
+  
  }
  
  this.setState({
