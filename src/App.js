@@ -24,6 +24,7 @@ class App extends Component {
   wordDictionary: [],
   lettersList:"",
   foundwords:[],
+  gameOver:false,
   nextLetters: []
   };
   }
@@ -275,7 +276,27 @@ checkWords = () => {
  })
 }
 
+checkGameOver = () => {
+  let gameBoard = this.state.board;
+  let blanksFound = 0;
+  for (let row = 0;row<6;row++) {
+    for (let col=0;col<6;col++){
+      if(gameBoard[row][col].letter===""){
+        blanksFound++;
+      }
+    }
+  }
+  if(blanksFound===0) {
+    this.setState({
+      gameOver:true
+    })
+  }
+}
+
 handleKey = (e) => {
+  let gameOver = this.state.gameOver;
+
+  if (!gameOver){
   this.setState({
     direction:e.code
   })
@@ -298,6 +319,8 @@ handleKey = (e) => {
   }
 
   this.checkWords();
+  this.checkGameOver();
+}
 }
 
 handleKeyUp =() => {
@@ -350,9 +373,14 @@ componentDidMount = () => {
     if(this.state.foundwords.length>0) {
       foundPanel = <FoundWord word={this.state.foundwords} />;
     }
+    let gameOverMessage = " ";
+    if(this.state.gameOver) {
+      gameOverMessage = "No more moves. Thanks for Playing!"
+    }
     return(
     <div className="App">
       <header className="App-header">
+      <div style={{height:"30px"}}>&nbsp;{gameOverMessage}</div>
       <div>
         <Nextletters letters={this.state.nextLetters}/>    
       </div>
