@@ -3,6 +3,7 @@ import { Component } from 'react';
 import Tile from ".//Components/Tile.js";
 import Nextletters from './Components/Nextletters';
 import FoundWord from './Components/FoundWord';
+import Stats from './Components/Stats'
 
 // returns a random integer between min and max
   function getRandomInt(min, max) {
@@ -21,6 +22,12 @@ class App extends Component {
     super(props);
   this.state = {direction: " Press an arrow key",
   board:this.startLetters(),
+  wordCount:0,
+  letterCount:0,
+  threeLetterWordCount:0,
+  fourLetterWordCount:0,
+  fiveLetterWordCount:0,
+  sixLetterWordCount:0,
   wordDictionary: [],
   lettersList:"",
   foundwords:[],
@@ -64,18 +71,21 @@ getNextLetters = () => {
   let newLetters = []
   let numberOfLetters = getRandomInt(1,3);
   let lettersAvailable = this.state.lettersList;
+  let letterCount = this.state.letterCount;
   let lettersAvailableCount = lettersAvailable.length;
 
   for(let i=0;i<numberOfLetters;i++){
     newLetters.push(lettersAvailable.charAt(getRandomInt(0,lettersAvailableCount)))
   }
 
+  letterCount=letterCount+numberOfLetters;
   this.setState({
-    nextLetters: newLetters
+    nextLetters: newLetters,
+    letterCount: letterCount
   })
 }
 
-// add letters to the row or column after a move
+// add letters from the state variable nextletters to the row or column after a move
 addLetters = (side,newBoard) => {
   let currentBoard = newBoard
   let lettersToAdd = this.state.nextLetters;
@@ -229,6 +239,11 @@ checkWords = () => {
  let wordsFound = [];
  let gameBoard = this.state.board;
  let wordsAvailable = this.state.wordDictionary;
+ let threeLetterWords = this.state.threeLetterWordCount;
+ let fourLetterWords = this.state.fourLetterWordCount;
+ let fiveLetterWordCount = this.state.fiveLetterWordCount;
+ let sixLetterWordCount = this.state.sixLetterWordCount;
+ let totalWordCount = this.state.wordCount;
 
  for(let i=0;i<6;i++){
 
@@ -238,6 +253,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(0,5).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 6) {
+        sixLetterWordCount++;
         wordsFound.push(word);
         for (let z =0;z<6;z++){
           gameBoard[i][z].status="found";
@@ -251,6 +267,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+5).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 5) {
+        fiveLetterWordCount++;
         wordsFound.push(word);
         for (let z =0;z<5;z++){
           gameBoard[i][startIndex+z].status="found";
@@ -265,6 +282,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+4).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 4) {
+        fourLetterWords++;
         wordsFound.push(word);
         for (let z =0;z<4;z++){
           gameBoard[i][startIndex+z].status="found";
@@ -279,6 +297,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+3).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 3) {
+        threeLetterWords++;
         wordsFound.push(word);
         for (let z =0;z<3;z++){
           gameBoard[i][startIndex+z].status="found";
@@ -294,6 +313,7 @@ checkWords = () => {
     let sixLetterWord=gameBoard[0][i].letter+gameBoard[1][i].letter+gameBoard[2][i].letter+gameBoard[3][i]+ gameBoard[4][i]+gameBoard[5][i];
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === sixLetterWord.toLowerCase() && word.length === 6) {
+        sixLetterWordCount++
         wordsFound.push(word);
         for (let z =0;z<6;z++){
           gameBoard[z][i].status="found";
@@ -307,6 +327,7 @@ checkWords = () => {
       let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter+gameBoard[startRow+3][i]+ gameBoard[startRow+4][i];
         wordsAvailable.forEach(word => {
           if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 5) {
+            fiveLetterWordCount++;
             wordsFound.push(word);
             for (let z =0;z<5;z++){
               gameBoard[startRow+z][i].status="found";
@@ -322,6 +343,7 @@ checkWords = () => {
       let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter+gameBoard[startRow+3][i];
         wordsAvailable.forEach(word => {
           if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 4) {
+            fourLetterWords++;
             wordsFound.push(word);
             for (let z =0;z<4;z++){
               gameBoard[startRow+z][i].status="found";
@@ -337,6 +359,7 @@ checkWords = () => {
     let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter;
       wordsAvailable.forEach(word => {
         if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 3) {
+          threeLetterWords++;
           wordsFound.push(word);
           for (let z =0;z<3;z++){
             gameBoard[startRow+z][i].status="found";
@@ -350,9 +373,16 @@ checkWords = () => {
   
  }
  
+ totalWordCount=threeLetterWords+fourLetterWords+fiveLetterWordCount+sixLetterWordCount;
+
  this.setState({
   board: gameBoard,
-  foundwords: wordsFound
+  foundwords: wordsFound,
+  threeLetterWordCount: threeLetterWords,
+  fourLetterWordCount:fourLetterWords,
+  fiveLetterWordCount:fiveLetterWordCount,
+  sixLetterWordCount:sixLetterWordCount,
+  wordCount: totalWordCount
  })
 }
 
@@ -472,6 +502,7 @@ componentDidMount = () => {
     <div className="App">
       <header className="App-header">
       <div style={{height:"30px"}}>&nbsp;{gameOverMessage}</div>
+      <div style={{height:"30px"}}>&nbsp;{foundPanel}</div>
       <div>
         <Nextletters letters={this.state.nextLetters}/>    
       </div>
@@ -489,9 +520,7 @@ componentDidMount = () => {
               )
               })}
         </div>
-        <p>
-          <div style={{height:"30px"}}>&nbsp;{foundPanel}</div>
-        </p>
+        <Stats threeLetterWordCount={this.state.threeLetterWordCount} fourLetterWordCount={this.state.fourLetterWordCount} fiveLetterWordCount={this.state.fiveLetterWordCount} sixLetterWordCount={this.state.sixLetterWordCount} totalWordCount={this.state.wordCount} letterCount= {this.state.letterCount} />
        
       </header>
     </div>
