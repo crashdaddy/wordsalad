@@ -253,6 +253,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(0,5).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 6) {
+        // eslint-disable-next-line
         sixLetterWordCount++;
         wordsFound.push(word);
         for (let z =0;z<6;z++){
@@ -267,6 +268,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+5).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 5) {
+        // eslint-disable-next-line
         fiveLetterWordCount++;
         wordsFound.push(word);
         for (let z =0;z<5;z++){
@@ -282,6 +284,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+4).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 4) {
+        // eslint-disable-next-line
         fourLetterWords++;
         wordsFound.push(word);
         for (let z =0;z<4;z++){
@@ -297,6 +300,7 @@ checkWords = () => {
     let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+3).join("").toLowerCase();
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 3) {
+        // eslint-disable-next-line
         threeLetterWords++;
         wordsFound.push(word);
         for (let z =0;z<3;z++){
@@ -313,6 +317,7 @@ checkWords = () => {
     let sixLetterWord=gameBoard[0][i].letter+gameBoard[1][i].letter+gameBoard[2][i].letter+gameBoard[3][i]+ gameBoard[4][i]+gameBoard[5][i];
     wordsAvailable.forEach(word => {
       if (word.toLowerCase() === sixLetterWord.toLowerCase() && word.length === 6) {
+        // eslint-disable-next-line
         sixLetterWordCount++
         wordsFound.push(word);
         for (let z =0;z<6;z++){
@@ -327,6 +332,7 @@ checkWords = () => {
       let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter+gameBoard[startRow+3][i]+ gameBoard[startRow+4][i];
         wordsAvailable.forEach(word => {
           if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 5) {
+            // eslint-disable-next-line
             fiveLetterWordCount++;
             wordsFound.push(word);
             for (let z =0;z<5;z++){
@@ -343,6 +349,7 @@ checkWords = () => {
       let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter+gameBoard[startRow+3][i];
         wordsAvailable.forEach(word => {
           if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 4) {
+            // eslint-disable-next-line
             fourLetterWords++;
             wordsFound.push(word);
             for (let z =0;z<4;z++){
@@ -359,6 +366,7 @@ checkWords = () => {
     let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter;
       wordsAvailable.forEach(word => {
         if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 3) {
+          // eslint-disable-next-line
           threeLetterWords++;
           wordsFound.push(word);
           for (let z =0;z<3;z++){
