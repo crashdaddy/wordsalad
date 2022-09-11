@@ -234,6 +234,18 @@ checkWords = () => {
 
   /// going horizontally
 
+    // 6-letter words
+    let firstWord = gameBoard[i].map(x=>x.letter).slice(0,5).join("").toLowerCase();
+    wordsAvailable.forEach(word => {
+      if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 6) {
+        wordsFound.push(word);
+        for (let z =0;z<6;z++){
+          gameBoard[i][z].status="found";
+          gameBoard[i][z].letter="";
+        }
+      }
+    });
+
     // 5-letter words
     for(let startIndex=0;startIndex<2;startIndex++){
     let firstWord = gameBoard[i].map(x=>x.letter).slice(startIndex,startIndex+5).join("").toLowerCase();
@@ -278,6 +290,47 @@ checkWords = () => {
 
   /// going vertically
 
+    // 6-letter words
+    let sixLetterWord=gameBoard[0][i].letter+gameBoard[1][i].letter+gameBoard[2][i].letter+gameBoard[3][i]+ gameBoard[4][i]+gameBoard[5][i];
+    wordsAvailable.forEach(word => {
+      if (word.toLowerCase() === sixLetterWord.toLowerCase() && word.length === 6) {
+        wordsFound.push(word);
+        for (let z =0;z<6;z++){
+          gameBoard[z][i].status="found";
+          gameBoard[z][i].letter="";
+        }
+      }
+    })
+    // 5-letter words
+    for (let startRow = 0; startRow<2;startRow++){
+        
+      let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter+gameBoard[startRow+3][i]+ gameBoard[startRow+4][i];
+        wordsAvailable.forEach(word => {
+          if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 5) {
+            wordsFound.push(word);
+            for (let z =0;z<5;z++){
+              gameBoard[startRow+z][i].status="found";
+              gameBoard[startRow+z][i].letter="";
+            }
+          }
+        })
+    }
+
+    // 4-letter words
+    for (let startRow = 0; startRow<3;startRow++){
+        
+      let firstWord=gameBoard[startRow][i].letter+gameBoard[startRow+1][i].letter+gameBoard[startRow+2][i].letter+gameBoard[startRow+3][i];
+        wordsAvailable.forEach(word => {
+          if (word.toLowerCase() === firstWord.toLowerCase() && word.length === 4) {
+            wordsFound.push(word);
+            for (let z =0;z<4;z++){
+              gameBoard[startRow+z][i].status="found";
+              gameBoard[startRow+z][i].letter="";
+            }
+          }
+        })
+    }
+
     // 3-letter words
     for (let startRow = 0; startRow<4;startRow++){
         
@@ -292,6 +345,8 @@ checkWords = () => {
         }
       })
   }
+
+  
   
  }
  

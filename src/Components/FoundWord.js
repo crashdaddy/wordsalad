@@ -5,7 +5,7 @@ class FoundWord extends Component {
 
     render() {
         //let foundWord = this.props.word.slice(-1);
-        console.log(this.props.word);
+        
        return (
 
         <div style={{display:"inline-block"}}>
