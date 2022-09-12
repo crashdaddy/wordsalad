@@ -9,7 +9,7 @@ class Stats extends Component {
 
     return (
         <div>
-        <div>Letters Used: {this.props.letterCount} Words Found: {this.props.totalWordCount}</div>
+        <div>Words Found: {this.props.totalWordCount}</div>
         <div>3LW: {this.props.threeLetterWordCount}</div>
         <div>4LW: {this.props.fourLetterWordCount}</div>
         <div>5LW: {this.props.fiveLetterWordCount}</div>

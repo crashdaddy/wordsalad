@@ -23,13 +23,12 @@ class App extends Component {
   this.state = {direction: " Press an arrow key",
   board:this.startLetters(),
   wordCount:0,
-  letterCount:0,
   threeLetterWordCount:0,
   fourLetterWordCount:0,
   fiveLetterWordCount:0,
   sixLetterWordCount:0,
   wordDictionary: [],
-  lettersList:"",
+  lettersList:"",   // list of letters randomized from dictionary
   foundwords:[],
   gameOver:false,
   nextLetters: []
@@ -54,14 +53,16 @@ startLetters = () => {
     [{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""},{letter:"",status:""}]
   ];
 
-
   let numberOfLetters = getRandomInt(1,5);
   
   for(let i=0;i<numberOfLetters;i++){
+    let newLetter = String.fromCharCode(0|Math.random()*26+65);
     let rowNum = getRandomInt(0,5);
     let colNum = getRandomInt(0,5);
-    protoBoard[rowNum][colNum].letter=String.fromCharCode(0|Math.random()*26+65);
+    protoBoard[rowNum][colNum].letter=newLetter
   }
+
+  
   return(protoBoard);
   
 }
@@ -74,11 +75,13 @@ getNextLetters = () => {
   let lettersAvailableCount = lettersAvailable.length;
 
   for(let i=0;i<numberOfLetters;i++){
-    newLetters.push(lettersAvailable.charAt(getRandomInt(0,lettersAvailableCount)))
+    let letterToAdd = lettersAvailable.charAt(getRandomInt(0,lettersAvailableCount));
+    newLetters.push(letterToAdd);
   }
 
+
   this.setState({
-    nextLetters: newLetters,
+    nextLetters: newLetters
   })
 }
 
@@ -87,7 +90,6 @@ addLetters = (side,newBoard) => {
   let currentBoard = newBoard
   let lettersToAdd = this.state.nextLetters;
   let numberOfLetters = lettersToAdd.length;
-  let totalLetters = this.state.letterCount;
   
   let emptySpaces =[];
   switch (side) {
@@ -155,10 +157,7 @@ addLetters = (side,newBoard) => {
         default:
      }
 
-  totalLetters+=lettersToAdd.length;
-  this.setState({
-    letterCount:totalLetters
-  })
+  
   this.updateBoard(currentBoard);
   this.getNextLetters();
 }
@@ -540,7 +539,7 @@ componentDidMount = () => {
               )
               })}
         </div>
-        <Stats threeLetterWordCount={this.state.threeLetterWordCount} fourLetterWordCount={this.state.fourLetterWordCount} fiveLetterWordCount={this.state.fiveLetterWordCount} sixLetterWordCount={this.state.sixLetterWordCount} totalWordCount={this.state.wordCount} letterCount= {this.state.letterCount} />
+        <Stats threeLetterWordCount={this.state.threeLetterWordCount} fourLetterWordCount={this.state.fourLetterWordCount} fiveLetterWordCount={this.state.fiveLetterWordCount} sixLetterWordCount={this.state.sixLetterWordCount} totalWordCount={this.state.wordCount}  />
        
       </header>
     </div>
